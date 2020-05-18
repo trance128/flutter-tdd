@@ -3,7 +3,7 @@ import 'package:meta/meta.dart';
 
 import '../../../../core/error/exceptions.dart';
 import '../../../../core/error/failures.dart';
-import '../../../../core/platform/network_info.dart';
+import '../../../../core/network/network_info.dart';
 import '../../domain/entities/number_trivia.dart';
 import '../../domain/repositories/number_trivia_repository.dart';
 import '../datasources/number_trivia_local_data_source.dart';
@@ -39,12 +39,10 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
   }
 
   Future<Either<Failure, NumberTrivia>> _getTrivia(
-    _ConcreteOrRandomChooser getConcreteOrRandom
-  ) async {
+      _ConcreteOrRandomChooser getConcreteOrRandom) async {
     if (await networkInfo.isConnected) {
       try {
-        final remoteTrivia =
-            await getConcreteOrRandom();
+        final remoteTrivia = await getConcreteOrRandom();
         localDataSource.cacheNumberTrivia(remoteTrivia);
         return Right(remoteTrivia);
       } on ServerException {
