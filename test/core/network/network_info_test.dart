@@ -19,7 +19,7 @@ void main() {
       // arrange
       final tHasConnetionFuture = Future.value(true);
 
-      when(mockDataConnectionChecker.hasConnection).thenAnswer((_) async => true);
+      when(mockDataConnectionChecker.hasConnection).thenAnswer((_) => tHasConnetionFuture);
 
       // act
       final result = networkInfo.isConnected;
