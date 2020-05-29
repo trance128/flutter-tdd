@@ -9,7 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   get_it: ^2.0.1
-  flutter_bloc: ^4.0.0
+  flutter_bloc: ^0.21.0
   equatable: ^0.4.0
   dartz: ^0.8.6
   connectivity: ^0.4.3+7
@@ -22,6 +22,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   mockito: ^4.1.0
+  lint: ^1.2.0
 
 
 flutter:
